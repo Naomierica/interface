@@ -1,0 +1,617 @@
+/*
+* @Author: Nguyen Ary
+* @Date: 12/08/2021
+*/
+
+:root {
+  --header-height: 90px;
+  --primary-color: #343ede;
+  --white-color: #ffffff;
+}
+
+html {
+  box-sizing: border-box;
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  color: #696969;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+ul {
+  color: #696969;
+  font-size: 1rem;
+  line-height: 1.5625rem;
+}
+
+@media only screen and (min-width: 600px) {
+  p,
+  ul {
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+  }
+}
+
+p {
+  margin: 1rem 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+h1,
+h2 {
+  margin: 0 0 2rem;
+  color: #3c3c3c;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 3.4375rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  h1 {
+    font-size: 5.125rem;
+    line-height: 6.25rem;
+  }
+}
+
+h2 {
+  font-size: 1.875rem;
+  line-height: 2.8125rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  h2 {
+    font-size: 3.4375rem;
+    line-height: 5rem;
+  }
+}
+
+h3 {
+  color: #696969;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5625rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+  }
+}
+
+/* Header Css */
+.header {
+  position: fixed;
+  top: 0;
+  height: var(--header-height);
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0.375rem 0.5625rem rgb(0 0 0 / 2%);
+  z-index: 1000;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+.header .container {
+  height: var(--header-height);
+}
+
+.header a {
+  position: relative;
+  display: inline-block;
+  color: #909090;
+  text-decoration: none;
+}
+
+.header .logo img {
+  width: 10.4rem;
+  transition: width 500ms;
+}
+
+.menu .links {
+  margin: 0;
+}
+
+.menu .links li {
+  margin: 0 0 0 2vw;
+  font-size: 18px;
+}
+.menu .active {
+  color: #3c3c3c;
+}
+
+.menu a:not(.telegram)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.125rem;
+  display: block;
+  width: 0;
+  height: 0.1875rem;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease-in-out;
+}
+
+.menu .active:hover::after {
+  width: 2rem;
+}
+
+.menu .links .telegram {
+  padding: 0.7em 1.5em 0.7em 3.5em;
+  border-radius: 0.5em;
+  color: #fff;
+  line-height: 1.5;
+  background: #2c2c2c url(../image/telegram.svg) no-repeat 1.3em 0.8em;
+  background-size: 1.5em;
+}
+
+.menu-mobile i {
+  font-size: 1.7rem;
+}
+
+/* Main - About hero CSS */
+section {
+  overflow: hidden;
+  padding: 3.75rem 0;
+}
+
+@media only screen and (min-width: 600px) {
+  section {
+    padding: 6.25rem 0;
+  }
+}
+
+.about-hero .img-container {
+  display: block;
+  position: relative;
+  max-width: 25.875rem;
+  margin: 0 auto;
+}
+
+.about-hero .img-card {
+  position: absolute;
+  left: 0.7rem;
+  max-width: 50%;
+  z-index: -1;
+  -webkit-animation: slideInFromBottomLeft 1.5s ease-out 0s 1,
+    fadeIn 1s ease-in 0s 1;
+  animation: slideInFromBottomLeft 1.5s ease-out 0s 1, fadeIn 1s ease-in 0s 1;
+}
+
+.about-hero .img-phone {
+  position: relative;
+  margin: 0 -60% 0 0;
+}
+
+@media only screen and (min-width: 1024px) {
+  .about-hero .img-container {
+    position: absolute;
+    right: 0;
+    top: 7rem;
+    max-width: 100%;
+  }
+
+  .about-hero .img-card {
+    position: absolute;
+    left: -3rem;
+    max-width: 50%;
+    z-index: -1;
+  }
+
+  .about-hero .img-phone {
+    margin: 0 -30% 0 0;
+  }
+}
+
+@media only screen and (min-width: 1366px) {
+  .about-hero .img-card {
+    left: calc(30% - 9rem);
+    max-width: 100%;
+  }
+}
+
+.about-hero .links li {
+  margin: 0 1rem 1rem 0;
+}
+
+@media screen and (max-width: 767px) {
+  .about-hero-links .links {
+    flex-direction: column;
+  }
+}
+
+.dot {
+  color: var(--primary-color);
+}
+
+.button,
+input {
+  display: inline-block;
+  height: 3.75rem;
+  padding: 1rem 3rem;
+  border: 0.125rem solid var(--primary-color);
+  border-radius: 2rem;
+  color: var(--primary-color);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  background: #fff;
+  transition-property: color, background;
+  transition-duration: 0.5s;
+}
+
+.button:hover {
+  color: #fff;
+  background: var(--primary-color);
+}
+
+/* Main - Countdown CSS */
+.countdown-container {
+  background-color: #0c162b;
+  color: #f8f7fb;
+}
+
+.clock-container .clock-number {
+  height: 70px;
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.clock-container div {
+  margin: 10px 0;
+}
+
+.presale-button {
+  background-color: transparent;
+  border: 0.125rem solid var(--white-color);
+  color: var(--white-color);
+}
+
+.presale-button:hover {
+  color: #e2d8d8;
+  border: 0.125rem solid #e2d8d8;
+}
+
+/* Main - About Project Label */
+.about-project-label {
+  padding-top: 3.125rem;
+  background-color: #fcfcfc;
+}
+
+.laurel-wreath {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  margin: 0 0 3.125rem;
+}
+
+.laurel-wreath::before,
+.laurel-wreath::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 73px;
+  background: url(../image/icon-laurel.svg);
+  background-size: cover;
+}
+
+.laurel-wreath::after {
+  background-position: 100% 0;
+}
+
+.about-project-label img {
+  width: 337px;
+  height: 99px;
+}
+
+/* Main - Better Future CSS */
+.better-future .text {
+  max-width: 37.5rem;
+  padding-top: 2rem;
+  margin: 0 auto 3rem;
+}
+
+.better-future .img {
+  max-width: 25.875rem;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 1024px) {
+  .better-future .img {
+    max-width: 100%;
+    padding-right: 3.4375rem;
+  }
+}
+
+.better-future .img > div {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+.better-future .bubble,
+.better-future .lines {
+  visibility: none;
+  position: absolute;
+  opacity: 0;
+}
+
+.better-future .bubble {
+  transition: opacity 0.75s ease;
+}
+
+@media only screen and (min-width: 1490px) {
+  .better-future .bubble {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.better-future .lines {
+  top: 0;
+  left: 0;
+  stroke: #ddd;
+  stroke-width: 0;
+  z-index: -1;
+  transition: opacity, stroke-width 0.75s ease 0.5s;
+}
+
+@media only screen and (min-width: 1490px) {
+  .better-future .lines {
+    visibility: visible;
+    opacity: 1;
+    stroke-width: 1;
+  }
+}
+
+.better-future .portrait {
+  top: 1.25rem;
+  right: 31.625rem;
+}
+
+.better-future .landscape {
+  top: 18.75rem;
+  right: 29.75rem;
+}
+
+.better-future .grow {
+  bottom: 6.5rem;
+  right: 36.13rem;
+}
+
+/* Main - About seen on */
+.about-seen-on {
+  padding-top: 0;
+  margin-top: -7.5rem;
+}
+
+.about-seen-on h3 {
+  margin: 7.5rem 0 2.5rem;
+}
+
+.about-seen-on .about-item {
+  --height-item: 70px;
+  position: relative;
+  margin: 2rem;
+  width: 300px;
+  height: var(--height-item);
+}
+
+.about-seen-on .about-item a::before {
+  --width: 6.875rem;
+  --height: 6.875rem;
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 50%;
+  background: #f2f2f2;
+  z-index: -1;
+  transition-property: background;
+  transition-duration: 0.5s;
+  left: calc(calc(100% / 2) - calc(var(--width) / 2));
+  top: calc(calc(var(--height-item) / 2) - calc(var(--height) / 2));
+}
+
+/* Main - About Treebs CSS */
+.about-treebs {
+  background-color: #fcfcfc;
+}
+
+.about-treebs h3 {
+  margin: 3.125rem 0 1.875rem;
+  font-size: 1.875rem;
+}
+
+.about-treebs .stable-treeb h3 span {
+  color: #e4c9a2;
+}
+
+.about-treebs .utility-treeb h3 span {
+  color: #343ede;
+}
+
+.button.disabled,
+.button.disabled:hover {
+  color: #909090;
+  border-color: #909090;
+  background: #fff;
+}
+.coming-soon {
+  position: relative;
+}
+
+.coming-soon::after {
+  content: "";
+  position: absolute;
+  top: -0.125rem;
+  right: -1rem;
+  width: 3.7rem;
+  height: 3.7rem;
+  background: url(../image/coming-soon.png) no-repeat;
+  background-size: cover;
+}
+
+/* Main - BNB Form */
+.bnb-form {
+  --primary-color: #d93979;
+  --text-color: #e9e9f1;
+  --bg-input-button-color: #21212d;
+  background-color: #0b152c;
+}
+
+.bnb-form button {
+  font-size: 1.2rem;
+}
+
+.bnb-form .description p,
+.bnb-form label {
+  color: var(--text-color);
+  font-size: 0.8rem;
+}
+
+.bnb-form .title {
+  color: var(--text-color);
+  font-size: 20px;
+}
+
+.bnb-form .form-content input {
+  background-color: var(--bg-input-button-color);
+  border: 0.125rem solid var(--white-color);
+  border-radius: 6px;
+  color: var(--white-color);
+  transition: 0.3s;
+}
+
+.bnb-form .btn-buy {
+  color: #000000;
+  border: none;
+  background-color: var(--white-color);
+  transition: 0.3s;
+}
+
+.bnb-form .btn-claim {
+  color: var(--white-color);
+  border: 0.125rem solid var(--white-color);
+  border-radius: 6px;
+  background-color: var(--bg-input-button-color);
+  transition: 0.3s;
+}
+
+.bnb-form .btn-claim:hover,
+.bnb-form .btn-buy:hover,
+.airdrop-live .airdrop-button:hover,
+.bnb-form input:hover,
+.bnb-form input:focus {
+  filter: brightness(1.3);
+}
+
+.bnb-form .airdrop-live {
+  color: var(--text-color);
+}
+
+.airdrop-live .airdrop-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.airdrop-live p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.airdrop-live .trust-wallet {
+  font-size: 0.7rem;
+}
+
+.airdrop-live .airdrop-button {
+  border: none;
+  color: var(--white-color);
+  font-size: 0.8rem;
+  background-color: #e7362e;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+/* Main - About partners CSS */
+.about-partners .partner-item {
+  margin: 2rem 1.5rem;
+}
+
+/* Footer CSS */
+.footer {
+  position: relative;
+  background: #343ede;
+}
+
+.footer,
+.footer a,
+.footer p {
+  color: #fff;
+}
+
+.footer h4 {
+  margin: 2.375rem 0;
+  font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 1490px) {
+  .footer-company::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 37vw;
+    width: 0.0625rem;
+    height: 60%;
+    background: #fff;
+  }
+}
+
+.footer-sitemap .links a {
+  display: inline-block;
+  margin: 0.375rem 0;
+}
+
+.footer-sitemap .links .focus {
+  font-weight: 600;
+}
+
+.footer-company .address {
+  font-weight: 600;
+}
